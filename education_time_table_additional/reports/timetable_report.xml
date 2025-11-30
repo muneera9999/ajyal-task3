@@ -1,0 +1,99 @@
+<odoo>
+<record id="timetable_report" model="ir.actions.report">
+    <field name="name">Print Timetable Report</field>
+    <field name="model">education.timetable</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="binding_model_id" ref="model_education_timetable"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="report_name">education_time_table_additional.timetable_report_template</field>
+</record>
+
+<template id="timetable_report_template">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="timetable">
+                    <H1 style="text-align: center;">TimeTable Report</H1>
+                    <style>
+                        table {
+                            width: 100%;
+                            border: 1px solid #b3adad;
+                            border-collapse: collapse;
+                            padding: 5px;
+                        }
+                        th {
+                            border: 1px solid #b3adad;
+                            padding: 5px;
+                            background: #f0f0f0;
+                            color: #313030;
+                        }
+                        td {
+                            border: 1px solid #b3adad;
+                            padding: 5px;
+                            background: #ffffff;
+                            color: #313030;
+                        }
+                    </style>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="6">Weekly Study Plan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Name</strong></td>
+                                <td><span t-esc="timetable.name"/></td>
+                                <td><strong>Academic Year</strong></td>
+                                <td><span t-esc="timetable.academic_year.name"/></td>
+                                <td><strong>School</strong></td>
+                                <td><span t-esc="timetable.company_id.name"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+
+                    
+                    <t t-foreach="timetable" t-as="schedule">
+                        <t t-foreach="['sun', 'mon', 'tue', 'wed', 'thur']" t-as="day">
+                            <t t-set="day_name" t-value="{'sun': 'Sunday', 'mon': 'Monday', 'tue': 'Tuesday', 'wed': 'Wednesday', 'thur': 'Thursday'}[day]"/>
+                            <t t-set="field_name" t-value="'timetable_' + day"/>
+                            <table>
+                                <thead>
+                                    <tr><th colspan="5" t-esc="day_name"/></tr>
+                                    <tr>
+                                        <td><strong>Period</strong></td>
+                                        <td><strong>Subject</strong></td>
+                                        <td colspan="3"><strong>Description</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="schedule[field_name]" t-as="period">
+                                        <tr>
+                                            <td><span t-esc="period.period_id.name"/></td>
+                                            <td><span t-esc="period.subject.name"/></td>
+                                            <td colspan="3"><span t-esc="period.description"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                        </t>
+                    </t>
+
+                    <!-- Principal -->
+                    <div style="margin-top: 50px; text-align: right;">
+                        <div style="border-top: 1px solid black; width: 250px; margin-left: auto; padding-top: 10px;">
+                            <strong><span t-esc="timetable.company_id.principal_id.name or 'Principal'"/></strong>
+                            <br/>Principal<br/>
+                              <!-- <span t-esc="user.company_id.name"/> -->
+                              <span t-esc="res_company.name"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </t>
+</template>
+</odoo>

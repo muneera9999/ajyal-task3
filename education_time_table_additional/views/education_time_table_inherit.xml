@@ -1,0 +1,25 @@
+
+<odoo>
+   <record id="education_time_table_form_inherit" model="ir.ui.view">
+    <field name="name">education timetable form inherit description</field>
+    <field name="model">education.timetable</field>
+    <field name="inherit_id" ref="education_time_table.education_time_table_form"/>
+    <field name="arch" type="xml"> 
+        <xpath expr="//field[@name='timetable_sun']/tree/field[@name='check_period']" position="after">
+            <field name="description"/>
+        </xpath>
+        <xpath expr="//field[@name='timetable_mon']/tree/field[@name='check_period']" position="after">
+            <field name="description"/>
+        </xpath>
+        <xpath expr="//field[@name='timetable_tue']/tree/field[@name='check_period']" position="after">
+            <field name="description"/>
+        </xpath>
+        <xpath expr="//field[@name='timetable_wed']/tree/field[@name='check_period']" position="after">
+            <field name="description"/>
+        </xpath>
+        <xpath expr="//field[@name='timetable_thur']/tree/field[@name='check_period']" position="after">
+            <field name="description"/>
+        </xpath>
+    </field>
+</record>
+</odoo>

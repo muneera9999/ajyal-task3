@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* education_time_table_additional
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-30 11:16+0000\n"
+"PO-Revision-Date: 2025-11-30 11:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<br/>Principal<br/>"
+msgstr "<br/>المدير<br/>"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>Academic Year</strong>"
+msgstr "السنة الأكاديميه"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>Description</strong>"
+msgstr "الوصف"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>Name</strong>"
+msgstr "الصف"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>Period</strong>"
+msgstr "المقرر"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>School</strong>"
+msgstr "المدرسة"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "<strong>Subject</strong>"
+msgstr "المواد"
+
+#. module: education_time_table_additional
+#: model:ir.model,name:education_time_table_additional.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: education_time_table_additional
+#: model:ir.model.fields,field_description:education_time_table_additional.field_education_timetable_schedule__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: education_time_table_additional
+#: model:ir.model.fields,field_description:education_time_table_additional.field_res_users__is_principal
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.res_users_form_inherit
+msgid "Is Principal"
+msgstr ""
+
+#. module: education_time_table_additional
+#: model:ir.model.fields,field_description:education_time_table_additional.field_education_timetable_schedule__principal_id
+#: model:ir.model.fields,field_description:education_time_table_additional.field_res_company__principal_id
+#: model:ir.model.fields,field_description:education_time_table_additional.field_school_school__principal_id
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.res_company_model_inherit
+msgid "Principal"
+msgstr "المدير"
+
+#. module: education_time_table_additional
+#: model:ir.actions.report,name:education_time_table_additional.timetable_report
+msgid "Print Timetable Report"
+msgstr "طباعة الجدول الأسبوعي"
+
+#. module: education_time_table_additional
+#: model:ir.model.fields,field_description:education_time_table_additional.field_education_timetable__schedule_ids
+msgid "Schedule"
+msgstr "الجدول"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "TimeTable Report"
+msgstr "تقرير الجدول الأسبوعي"
+
+#. module: education_time_table_additional
+#: model:ir.model,name:education_time_table_additional.model_education_timetable
+msgid "Timetable"
+msgstr "جدول الحصص"
+
+#. module: education_time_table_additional
+#: model:ir.model,name:education_time_table_additional.model_education_timetable_schedule
+msgid "Timetable Schedule"
+msgstr "الجدول العام"
+
+#. module: education_time_table_additional
+#: model:ir.model,name:education_time_table_additional.model_res_users
+msgid "User"
+msgstr "المستخدم"
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Weekly Study Plan"
+msgstr "خطة الدراسة الأسبوعية"
