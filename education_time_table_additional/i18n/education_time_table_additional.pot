@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 11:15+0000\n"
-"PO-Revision-Date: 2025-11-30 11:15+0000\n"
+"POT-Creation-Date: 2025-12-13 19:44+0000\n"
+"PO-Revision-Date: 2025-12-13 19:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,37 +17,27 @@ msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<br/>Principal<br/>"
+msgid "<strong> Principal: </strong>"
 msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>Academic Year</strong>"
+msgid "<strong> Weekly Study Plan</strong>"
 msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>Description</strong>"
+msgid "<strong>Academic Year:</strong>"
 msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>Name</strong>"
+msgid "<strong>Class:</strong>"
 msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>Period</strong>"
-msgstr ""
-
-#. module: education_time_table_additional
-#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>School</strong>"
-msgstr ""
-
-#. module: education_time_table_additional
-#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "<strong>Subject</strong>"
+msgid "<strong>School:</strong>"
 msgstr ""
 
 #. module: education_time_table_additional
@@ -67,6 +57,21 @@ msgid "Is Principal"
 msgstr ""
 
 #. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Ministry Of Education Logo"
+msgstr ""
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Monday"
+msgstr ""
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Period"
+msgstr ""
+
+#. module: education_time_table_additional
 #: model:ir.model.fields,field_description:education_time_table_additional.field_education_timetable_schedule__principal_id
 #: model:ir.model.fields,field_description:education_time_table_additional.field_res_company__principal_id
 #: model:ir.model.fields,field_description:education_time_table_additional.field_school_school__principal_id
@@ -76,7 +81,7 @@ msgstr ""
 
 #. module: education_time_table_additional
 #: model:ir.actions.report,name:education_time_table_additional.timetable_report
-msgid "Print Timetable Report"
+msgid "Timetable Report"
 msgstr ""
 
 #. module: education_time_table_additional
@@ -86,7 +91,12 @@ msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "TimeTable Report"
+msgid "Sunday"
+msgstr ""
+
+#. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Thursday"
 msgstr ""
 
 #. module: education_time_table_additional
@@ -100,11 +110,16 @@ msgid "Timetable Schedule"
 msgstr ""
 
 #. module: education_time_table_additional
+#: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
+msgid "Tuesday"
+msgstr ""
+
+#. module: education_time_table_additional
 #: model:ir.model,name:education_time_table_additional.model_res_users
 msgid "User"
 msgstr ""
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
-msgid "Weekly Study Plan"
+msgid "Wednesday"
 msgstr ""

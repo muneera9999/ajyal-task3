@@ -2,7 +2,7 @@
     'name': 'Educational Time Table Additional',
     'version': '17.0',
     'category': 'Extra Tools',
-    'summary': 'Timetable for Education erp',
+    'summary': 'Addition of Report in Timetable for Education erp',
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'website': "http://www.educationalerp.com",
@@ -17,6 +17,13 @@
         'reports/timetable_report.xml',  
 
     ],
+    
+    'assets': {
+    'web.report_assets_common': [
+        'education_time_table_additional/static/description/logo.png'
+
+    ],
+},
 
     'application': False,
 }

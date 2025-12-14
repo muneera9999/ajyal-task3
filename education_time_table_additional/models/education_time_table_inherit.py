@@ -30,3 +30,5 @@ class ResCompany(models.Model):
     _inherit='res.company'
 
     principal_id = fields.Many2one('res.users', string='Principal')
+    
+    ## try the env on the company and principal

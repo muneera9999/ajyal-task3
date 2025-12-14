@@ -1,99 +1,250 @@
 <odoo>
-<record id="timetable_report" model="ir.actions.report">
-    <field name="name">Print Timetable Report</field>
-    <field name="model">education.timetable</field>
-    <field name="report_type">qweb-pdf</field>
-    <field name="binding_model_id" ref="model_education_timetable"/>
-    <field name="binding_view_types">list,form</field>
-    <field name="report_name">education_time_table_additional.timetable_report_template</field>
-</record>
+    <record id="timetable_report" model="ir.actions.report">
+        <field name="name">Timetable Report</field>
+        <field name="model">education.timetable.schedule</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_education_timetable" />
+        <field name="binding_view_types">list,form</field>
+        <field name="report_name">education_time_table_additional.timetable_report_template</field>
+    </record>
 
-<template id="timetable_report_template">
-    <t t-call="web.html_container">
-        <t t-call="web.external_layout">
-            <div class="page">
-                <t t-foreach="docs" t-as="timetable">
-                    <H1 style="text-align: center;">TimeTable Report</H1>
-                    <style>
-                        table {
+    <template id="timetable_report_template">
+        <t t-call="web.html_container">
+            <meta charset="utf-8"/>
+            <!-- <t t-call="web.external_layout"> -->
+              <t t-set="request" t-value="request"/>
+                <div class="page">
+                    <t t-foreach="docs" t-as="timetable">
+                      
+<table style="width:100%; direction: rtl; border-collapse:collapse;">
+    <tr>
+        <!-- Left Column -->
+        <td style="width:33%; text-align:right; vertical-align:top; padding:10 10px; border:none;">
+            <div><strong>School:</strong>
+                <span t-esc="timetable.timetable_id.company_id.name"/>
+            </div>
+        </td>
+
+      <!-- Center Column -->
+<td style="width:33%; text-align:center; vertical-align:top; border:none; padding:10">
+    <div style="margin:0 auto 5px;">
+        <img t-att-src="request.httprequest.host_url + 'education_time_table_additional/static/description/logo.png'"
+             style="width: 150px; height: 80px; object-fit: contain;" 
+             alt="Ministry Of Education Logo" />
+    </div> 
+</td>
+
+        <!-- Right Column -->
+        <td style="width:33%; text-align:left; vertical-align:top; padding:10 10px; border:none;">
+            <div><strong>Class:</strong>
+                <span t-esc="timetable.timetable_id.name or ''"/>
+            </div>
+            <div><strong>Academic Year:</strong>
+                <span t-esc="timetable.timetable_id.academic_year.name"/>
+            </div>
+        </td>
+    </tr>
+</table>
+
+                        <style>
+                            table {
                             width: 100%;
                             border: 1px solid #b3adad;
                             border-collapse: collapse;
                             padding: 5px;
-                        }
-                        th {
-                            border: 1px solid #b3adad;
+                            }
+
+                            th {
                             padding: 5px;
                             background: #f0f0f0;
                             color: #313030;
-                        }
-                        td {
-                            border: 1px solid #b3adad;
+                            }
+
+                            td {
                             padding: 5px;
                             background: #ffffff;
                             color: #313030;
-                        }
-                    </style>
+                            }
+                        </style>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colspan="6">Weekly Study Plan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Name</strong></td>
-                                <td><span t-esc="timetable.name"/></td>
-                                <td><strong>Academic Year</strong></td>
-                                <td><span t-esc="timetable.academic_year.name"/></td>
-                                <td><strong>School</strong></td>
-                                <td><span t-esc="timetable.company_id.name"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br/>
-
-                    
-                    <t t-foreach="timetable" t-as="schedule">
-                        <t t-foreach="['sun', 'mon', 'tue', 'wed', 'thur']" t-as="day">
-                            <t t-set="day_name" t-value="{'sun': 'Sunday', 'mon': 'Monday', 'tue': 'Tuesday', 'wed': 'Wednesday', 'thur': 'Thursday'}[day]"/>
-                            <t t-set="field_name" t-value="'timetable_' + day"/>
-                            <table>
-                                <thead>
-                                    <tr><th colspan="5" t-esc="day_name"/></tr>
-                                    <tr>
-                                        <td><strong>Period</strong></td>
-                                        <td><strong>Subject</strong></td>
-                                        <td colspan="3"><strong>Description</strong></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <t t-foreach="schedule[field_name]" t-as="period">
-                                        <tr>
-                                            <td><span t-esc="period.period_id.name"/></td>
-                                            <td><span t-esc="period.subject.name"/></td>
-                                            <td colspan="3"><span t-esc="period.description"/></td>
-                                        </tr>
-                                    </t>
-                                </tbody>
-                            </table>
-                            <br/>
-                        </t>
-                    </t>
-
-                    <!-- Principal -->
-                    <div style="margin-top: 50px; text-align: right;">
-                        <div style="border-top: 1px solid black; width: 250px; margin-left: auto; padding-top: 10px;">
-                            <strong><span t-esc="timetable.company_id.principal_id.name or 'Principal'"/></strong>
-                            <br/>Principal<br/>
-                              <!-- <span t-esc="user.company_id.name"/> -->
-                              <span t-esc="res_company.name"/>
+                        <div style="text-align: center;">
+                            <strong> Weekly Study Plan</strong>
                         </div>
-                    </div>
-                </t>
-            </div>
-        </t>
-    </t>
-</template>
+
+                        <table class="table" style="direction: rtl; ">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Sunday</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                <t t-set="period_ids" t-value="[]" />
+                                <t t-foreach="['sun', 'mon', 'tue', 'wed', 'thur']" t-as="day">
+                                    <t t-set="field_name" t-value="'timetable_' + day" />
+                                    <t t-foreach="timetable.timetable_id[field_name]" t-as="period">
+                                        <t t-if="period and period.period_id">
+                                            <t t-if="period.period_id.id not in period_ids">
+                                                <t t-set="period_ids"
+                                                    t-value="period_ids + [period.period_id.id]" />
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+
+                                
+                                <t t-foreach="period_ids" t-as="period_id">
+                                    <tr>
+                                       
+                                        <t t-set="period_name" t-value="''" />
+                                        <t t-set="faculty_name" t-value="''" />
+                                        <t t-foreach="timetable.timetable_id.timetable_sun" t-as="period">
+                                            <t t-if="period and period.period_id and period.period_id.id == period_id">
+                                                <t t-set="period_name" t-value="period.period_id.name" />
+                                                     <t t-if="period.faculty_id">
+                                                        <t t-set="faculty_name" t-value="period.faculty_id.name" />
+                                                    </t>
+                                                    <t t-if="not faculty_name and period.faculty_id">
+                                                        <t t-set="faculty_name" t-value="period.faculty_id.name" />
+                                                    </t>
+                                            </t>
+                                        </t>
+
+                                        <t t-if="not period_name or not faculty_name">
+                                            <t t-foreach="timetable.timetable_id.timetable_mon" t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="period_name"
+                                                        t-value="period.period_id.name" />
+                                                </t>
+                                                <t t-if="not faculty_name and period.faculty_id">
+                                                    <t t-set="faculty_name" t-value="period.faculty_id.name" />
+                                                </t>
+                                                <t t-if="not faculty_name and period.faculty_id">
+                                                    <t t-set="faculty_name" t-value="period.faculty_id.name" />
+                                                </t>
+                                            </t>
+                                        </t>
+
+                                        <td>
+                                            <t t-esc="period_name" />
+                                            <br/>
+                                            <small><t t-esc="faculty_name"/></small>
+                                        </td>
+
+                                        <!-- Sunday -->
+                                        <td>
+                                            <t t-set="sunday_desc" t-value="''" />
+                                            <t t-foreach="timetable.timetable_id.timetable_sun"
+                                                t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="sunday_desc"
+                                                        t-value="period.description or ''" />
+                                                </t>
+                                            </t>
+                                            <t t-if="sunday_desc">
+                                                <t t-esc="sunday_desc" />
+                                            </t>
+                                            <t t-else="">
+                                                -
+                                            </t>
+                                        </td>
+
+                                        <!-- Monday -->
+                                        <td>
+                                            <t t-set="monday_desc" t-value="''" />
+                                            <t t-foreach="timetable.timetable_id.timetable_mon"
+                                                t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="monday_desc"
+                                                        t-value="period.description or ''" />
+                                                </t>
+                                            </t>
+                                            <t t-if="monday_desc">
+                                                <t t-esc="monday_desc" />
+                                            </t>
+                                            <t t-else="">
+                                                -
+                                            </t>
+                                        </td>
+
+                                        <!-- Tuesday -->
+                                        <td>
+                                            <t t-set="tuesday_desc" t-value="''" />
+                                            <t t-foreach="timetable.timetable_id.timetable_tue"
+                                                t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="tuesday_desc"
+                                                        t-value="period.description or ''" />
+                                                </t>
+                                            </t>
+                                            <t t-if="tuesday_desc">
+                                                <t t-esc="tuesday_desc" />
+                                            </t>
+                                            <t t-else="">
+                                                -
+                                            </t>
+                                        </td>
+
+                                        <!-- Wednesday -->
+                                        <td>
+                                            <t t-set="wednesday_desc" t-value="''" />
+                                            <t t-foreach="timetable.timetable_id.timetable_wed"
+                                                t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="wednesday_desc"
+                                                        t-value="period.description or ''" />
+                                                </t>
+                                            </t>
+                                             <t t-if="wednesday_desc">
+                                                <t t-esc="wednesday_desc" />
+                                            </t>
+                                            <t t-else="">
+                                                -
+                                            </t>
+                                        </td>
+
+                                        <!-- Thursday -->
+                                        <td>
+                                            <t t-set="thursday_desc" t-value="''" />
+                                            <t t-foreach="timetable.timetable_id.timetable_thur"
+                                                t-as="period">
+                                                <t
+                                                    t-if="period and period.period_id and period.period_id.id == period_id">
+                                                    <t t-set="thursday_desc"
+                                                        t-value="period.description or ''" />
+                                                </t>
+                                            </t>
+                                            <t t-if="thursday_desc">
+                                                <t t-esc="thursday_desc" />
+                                            </t>
+                                            <t t-else="">
+                                                -
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Principal -->
+                        <div style="margin-top: 10px; text-align: left;">
+                            <div>
+                                <strong> Principal: </strong>
+                                    <span t-esc="timetable.company_id.principal_id.name" />
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+    </template>
 </odoo>
