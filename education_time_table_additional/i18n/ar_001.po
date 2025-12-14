@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 19:46+0000\n"
-"PO-Revision-Date: 2025-12-13 19:46+0000\n"
+"POT-Creation-Date: 2025-12-14 07:06+0000\n"
+"PO-Revision-Date: 2025-12-14 07:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,17 +23,17 @@ msgstr "<strong> المدير: </strong>"
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
 msgid "<strong> Weekly Study Plan</strong>"
-msgstr "خطة الدراسة الأسبوعية"
+msgstr "<strong> خطة الدراسة الأسبوعية</strong>"
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
 msgid "<strong>Academic Year:</strong>"
-msgstr "<strong>السنة الأكاديمة:</strong>"
+msgstr "<strong>السنة الأكاديمية:</strong>"
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
 msgid "<strong>Class:</strong>"
-msgstr "<strong>الصف الدراسي:</strong>"
+msgstr "<strong>الصف:</strong>"
 
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
@@ -80,11 +80,6 @@ msgid "Principal"
 msgstr "المدير"
 
 #. module: education_time_table_additional
-#: model:ir.actions.report,name:education_time_table_additional.timetable_report
-msgid "Timetable Report"
-msgstr "الجدول الاسبوعي"
-
-#. module: education_time_table_additional
 #: model:ir.model.fields,field_description:education_time_table_additional.field_education_timetable__schedule_ids
 msgid "Schedule"
 msgstr "الجدول"
@@ -105,6 +100,11 @@ msgid "Timetable"
 msgstr "جدول الحصص"
 
 #. module: education_time_table_additional
+#: model:ir.actions.report,name:education_time_table_additional.timetable_report
+msgid "Timetable Report"
+msgstr "تقرير الجدول الأسبوعي"
+
+#. module: education_time_table_additional
 #: model:ir.model,name:education_time_table_additional.model_education_timetable_schedule
 msgid "Timetable Schedule"
 msgstr "الجدول العام"
@@ -112,7 +112,7 @@ msgstr "الجدول العام"
 #. module: education_time_table_additional
 #: model_terms:ir.ui.view,arch_db:education_time_table_additional.timetable_report_template
 msgid "Tuesday"
-msgstr "الثلاثاْ"
+msgstr "الثلاثاء"
 
 #. module: education_time_table_additional
 #: model:ir.model,name:education_time_table_additional.model_res_users
